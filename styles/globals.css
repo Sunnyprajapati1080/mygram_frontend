@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.image {
+    min-width: unset !important;
+    min-height: unset !important;
+    max-width: none !important;
+    max-height: none !important;
+    width: 100% !important;
+    position: static !important;
+    height: unset !important;
+}
