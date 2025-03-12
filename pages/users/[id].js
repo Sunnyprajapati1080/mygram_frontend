@@ -16,13 +16,13 @@ const getUser = (props) => {
 
     const handleFollowing = async () => {
         setfollowed(!followed)
-        await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/posts/updateFollowers/${user._id}`, {
+        await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/posts/updateFollowers/${user._id}`, {
             headers: {
                 "token": Cookies.get("token")
             },
             method: "PATCH"
         })
-        await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/posts/updateFollowing/${user._id}`, {
+        await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/posts/updateFollowing/${user._id}`, {
             headers: {
                 "token": Cookies.get("token")
             },
@@ -62,7 +62,7 @@ const getUser = (props) => {
 }
 
 export async function getServerSideProps(context) {
-    const imgjson = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/auth/getProfileImg`, {
+    const imgjson = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/getProfileImg`, {
         headers: {
             "token": context.req.cookies.token
         }
@@ -76,7 +76,7 @@ export async function getServerSideProps(context) {
             },
         };
     }
-    const userjson = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/auth/getuser/${context.query.id}`, {
+    const userjson = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/getuser/${context.query.id}`, {
         headers: {
             "token": context.req.cookies.token
         }
@@ -98,7 +98,7 @@ export async function getServerSideProps(context) {
             }
         }
     }
-    const postsjson = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/posts/getUserPosts/${context.query.id}`, {
+    const postsjson = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/posts/getUserPosts/${context.query.id}`, {
         headers: {
             "token": context.req.cookies.token
         }

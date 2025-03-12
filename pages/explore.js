@@ -28,12 +28,12 @@ const explore = (props) => {
 }
 
 export async function getServerSideProps(context) {
-    const res1 = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/auth/getProfileImg`, {
+    const res1 = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/getProfileImg`, {
         headers: {
             "token": context.req.cookies.token
         }
     })
-    const res2 = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/posts/getAllPosts`, {
+    const res2 = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/posts/getAllPosts`, {
         headers: {
             "token": context.req.cookies.token
         }

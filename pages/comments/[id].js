@@ -15,7 +15,7 @@ const Comments = (props) => {
         if (commentValue !== "") {
             scrollTo(0, 0)
             setcomments([{ message: commentValue, user: { _id: Cookies.get("id"), username: Cookies.get("username"), profileImg: props.img } }, ...comments])
-            await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/posts/postcomment/${props.postId}`, {
+            await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/posts/postcomment/${props.postId}`, {
                 method: "POST",
                 headers: {
                     token: Cookies.get("token"),
@@ -88,7 +88,7 @@ const Comments = (props) => {
 }
 
 export async function getServerSideProps(context) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/auth/getProfileImg`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/getProfileImg`, {
         headers: {
             "token": context.req.cookies.token
         }
@@ -103,7 +103,7 @@ export async function getServerSideProps(context) {
             },
         };
     }
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/posts/getcomments/${context.query.id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/posts/getcomments/${context.query.id}`, {
         headers: {
             "token": context.req.cookies.token
         }

@@ -57,7 +57,7 @@ const Following = (props) => {
 }
 
 export async function getServerSideProps(context) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/auth/getProfileImg`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/getProfileImg`, {
     headers: {
       "token": context.req.cookies.token
     }
@@ -72,7 +72,7 @@ export async function getServerSideProps(context) {
       },
     };
   }
-  const response = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/auth/getfollowing/${context.query.id}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/getfollowing/${context.query.id}`, {
     headers: {
       "token": context.req.cookies.token
     }

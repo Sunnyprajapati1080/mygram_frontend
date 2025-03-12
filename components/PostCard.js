@@ -26,7 +26,7 @@ const PostCard = (props) => {
         } else {
             setlikes(likes - 1)
         }
-        await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/posts/updateLikes/${props.postId}`, {
+        await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/posts/updateLikes/${props.postId}`, {
             headers: {
                 "token": Cookies.get("token")
             },

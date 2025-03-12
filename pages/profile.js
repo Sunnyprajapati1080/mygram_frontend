@@ -44,7 +44,7 @@ const Profile = (props) => {
 }
 
 export async function getServerSideProps(context) {
-    const res1 = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/auth/getUserDetails`, {
+    const res1 = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/getUserDetails`, {
         headers: {
             "token": context.req.cookies.token
         }
@@ -59,7 +59,7 @@ export async function getServerSideProps(context) {
             props: {},
         };
     }
-    const res2 = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/posts/getOwnPosts`, {
+    const res2 = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/posts/getOwnPosts`, {
         headers: {
             "token": context.req.cookies.token
         }

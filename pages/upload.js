@@ -41,7 +41,7 @@ const Upload = (props) => {
         const formData = new FormData();
         formData.append("desc", e.target.desc.value);
         formData.append('img', e.target.upload.files[0]);
-        const res = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/posts/createPost`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/posts/createPost`, {
             headers: {
                 token: Cookies.get("token")
             },
@@ -98,7 +98,7 @@ const Upload = (props) => {
 }
 
 export async function getServerSideProps(context) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/auth/getProfileImg`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/getProfileImg`, {
         headers: {
             "token": context.req.cookies.token
         }

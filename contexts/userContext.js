@@ -16,7 +16,7 @@ const UserState = (props) => {
   };
 
   const handleAuth = async (url, body, isSignup = false) => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}${url}`, body);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}${url}`, body);
     const resjson = await res.json();
 
     if (resjson.error) return setduplicate(true);

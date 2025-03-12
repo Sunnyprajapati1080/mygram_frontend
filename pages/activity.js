@@ -30,7 +30,7 @@ const Activity = (props) => {
 }
 
 export async function getServerSideProps(context) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/auth/getProfileImg`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/getProfileImg`, {
         headers: {
             "token": context.req.cookies.token
         }
@@ -45,7 +45,7 @@ export async function getServerSideProps(context) {
         };
     }
 
-    const activitiesjson = await fetch(`${process.env.NEXT_PUBLIC_BACK_HOST}/api/auth/getactivities`, {
+    const activitiesjson = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/getactivities`, {
         headers: {
             "token": context.req.cookies.token
         }
